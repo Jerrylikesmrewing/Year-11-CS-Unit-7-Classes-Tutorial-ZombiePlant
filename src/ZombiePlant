@@ -1,0 +1,33 @@
+public class ZombiePlant {
+    private final int potencyRequired;
+    private int treatmentsNeeded;
+
+    public ZombiePlant(int potencyRequired, int initialTreatments) {
+        this.potencyRequired = potencyRequired;
+        this.treatmentsNeeded = initialTreatments;
+    }
+
+    public int getPotency() {
+        return potencyRequired;
+    }
+
+    public int treatmentsNeeded() {
+        return treatmentsNeeded;
+    }
+
+    public boolean isDangerous() {
+        return treatmentsNeeded > 0;
+    }
+
+    public void treat(int potency) {
+        if (treatmentsNeeded > 0) {
+            if (potency <= potencyRequired && potency > 0) {
+                treatmentsNeeded--;
+            } else if (potency > potencyRequired) {
+                treatmentsNeeded++;
+            }
+            // If potency is 0 or negative, do nothing
+        }
+        // If plant is already cured (treatmentsNeeded == 0), do nothing
+    }
+}
